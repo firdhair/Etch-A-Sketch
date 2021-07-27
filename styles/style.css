@@ -154,9 +154,23 @@ body {
   border-radius: 0.3rem;
 }
 
+#grid16 {
+  -ms-grid-columns: (1fr)[var];
+      grid-template-columns: repeat(var(--n, 16), 1fr);
+}
+
+#grid32 {
+  -ms-grid-columns: (1fr)[var];
+      grid-template-columns: repeat(var(--n, 32), 1fr);
+}
+
+#grid64 {
+  -ms-grid-columns: (1fr)[var];
+      grid-template-columns: repeat(var(--n, 64), 1fr);
+}
+
 .gridCol,
 .gridRow {
-  cursor: pointer;
   border: solid #eeeeee 1px;
   border-radius: 0.3rem;
 }

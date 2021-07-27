@@ -87,9 +87,21 @@ body {
   border: 1.5rem solid #6dac9d;
   border-radius: 0.3rem;
 }
+
+#grid16 {
+  grid-template-columns: repeat(var(--n, 16), 1fr);
+}
+
+#grid32 {
+  grid-template-columns: repeat(var(--n, 32), 1fr);
+}
+
+#grid64 {
+  grid-template-columns: repeat(var(--n, 64), 1fr);
+}
+
 .gridCol,
 .gridRow {
-  cursor: pointer;
   border: solid rgb(238, 238, 238) 1px;
   border-radius: 0.3rem;
 }
