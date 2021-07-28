@@ -51,6 +51,7 @@ a {
 
 body {
   min-height: 100vh;
+  background-color: #ededed;
 }
 
 .header h1 {
@@ -58,14 +59,37 @@ body {
   text-align: center;
   font-size: 5rem;
   font-weight: bold;
-  color: #334d46;
-  margin: 5rem 0rem 10rem 0rem;
+  color: #2d3130;
+  margin: 5rem 0rem 7rem 0rem;
+}
+
+.pick {
+  width: 49%;
+  margin: auto;
+}
+
+.pick span {
+  width: 9rem;
+  height: 9rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  background-color: #2d3130;
+  position: absolute;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+}
+
+.settings {
+  position: relative;
 }
 
 .color,
 .size {
   font-family: "Montserrat", sans-serif;
-  width: 73%;
+  width: 33%;
   margin: auto;
   margin-bottom: 2rem;
   display: -webkit-box;
@@ -91,16 +115,16 @@ body {
 .color button,
 .size button {
   font-family: "Montserrat", sans-serif;
-  background-color: #fcfcfc;
+  background-color: #f7f7f7;
   padding: 0.5rem 4rem;
   margin: 0rem 2rem 0rem 0rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
-  transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
-  border: 0.4rem solid #b0dab9;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  border: 0.1rem solid #333;
 }
 
 .color button:hover,
@@ -135,6 +159,10 @@ body {
   color: #696d61;
 }
 
+.size {
+  margin-bottom: 7rem;
+}
+
 .size button {
   color: #5c5f57;
 }
@@ -145,12 +173,13 @@ body {
   margin-bottom: 10rem;
   display: -ms-grid;
   display: grid;
-  width: 110rem;
+  width: 80rem;
   height: 80rem;
   -ms-grid-columns: (1fr)[var];
       grid-template-columns: repeat(var(--n, 16), 1fr);
   background-color: white;
-  border: 1.5rem solid #6dac9d;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 6px 9px 0;
+          box-shadow: rgba(0, 0, 0, 0.09) 0 6px 9px 0;
   border-radius: 0.3rem;
 }
 

@@ -42,17 +42,24 @@
   <body>
     <div class="header">
       <h1>Etch A Sketch</h1>
-      <div class="size">
-        <h4 class="size-choose">Size</h4>
-        <button class="grid16">16x16</button>
-        <button class="grid32">32x32</button>
-        <button class="grid64">64x64</button>
-      </div>
-      <div class="color">
-        <h4 class="color-choose">Color</h4>
-        <button class="black">Black</button>
-        <button class="warm">Warm</button>
-        <button class="pick">Pick</button>
+      <div class="settings">
+        <div class="pick">
+          <span></span>
+        </div>
+        <div class="color">
+          <!-- <h4 class="color-choose">Color</h4> -->
+          <button class="black" style="background-color: #333; color: white">
+            Black
+          </button>
+          <button class="warm">Warm</button>
+          <button class="random">Random</button>
+        </div>
+        <div class="size">
+          <!-- <h4 class="size-choose">Size</h4> -->
+          <button class="grid16">16x16</button>
+          <button class="grid32">32x32</button>
+          <button class="grid64">64x64</button>
+        </div>
       </div>
     </div>
     <div class="container"></div>

@@ -8,6 +8,7 @@ body {
   //   #c5f3c0,
   //   #b7f7bf
   // );
+  background-color: #ededed;
 }
 
 .header {
@@ -16,15 +17,36 @@ body {
     text-align: center;
     font-size: 5rem;
     font-weight: bold;
-    color: #334d46;
-    margin: 5rem 0rem 10rem 0rem;
+    color: #2d3130;
+    margin: 5rem 0rem 7rem 0rem;
   }
+}
+
+.pick {
+  width: 49%;
+  margin: auto;
+  span {
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #2d3130;
+    position: absolute;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+  }
+}
+
+.settings {
+  position: relative;
 }
 
 .color,
 .size {
   font-family: "Montserrat", sans-serif;
-  width: 73%;
+  width: 33%;
   margin: auto;
   margin-bottom: 2rem;
   @include flex(flex-start, center, row);
@@ -33,15 +55,15 @@ body {
   }
   button {
     font-family: "Montserrat", sans-serif;
-    background-color: #fcfcfc;
+    background-color: #f7f7f7;
     //font-family: "Sacramento", cursive;
     //font-style: italic;
     padding: 0.5rem 4rem;
     margin: 0rem 2rem 0rem 0rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     cursor: pointer;
-    transition: transform 0.4s;
-    border: 0.4rem solid #b0dab9;
+    transition: transform 0.2s;
+    border: 0.1rem solid #333;
     // box-shadow: 0 1px 5px 0 #b0dab9;
   }
   button:hover {
@@ -70,6 +92,7 @@ body {
 }
 
 .size {
+  margin-bottom: 7rem;
   button {
     color: #5c5f57;
   }
@@ -80,11 +103,12 @@ body {
   margin-top: 3rem;
   margin-bottom: 10rem;
   display: grid;
-  width: 110rem;
+  width: 80rem;
   height: 80rem;
   grid-template-columns: repeat(var(--n, 16), 1fr);
   background-color: white;
-  border: 1.5rem solid #6dac9d;
+  //border: 0.1rem solid #333333;
+  box-shadow: rgba(0, 0, 0, 0.09) 0 6px 9px 0;
   border-radius: 0.3rem;
 }
 
