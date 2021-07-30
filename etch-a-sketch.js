@@ -36,18 +36,19 @@ function playGame(value) {
       });
       warm.addEventListener("click", function (e) {
         gridRow.addEventListener("mouseover", function (e) {
-          e.target.style.background = "pink";
+          e.target.style.background = pickWarm();
+          span.setAttribute("class", "pickWarm");
         });
         gridCol.addEventListener("mouseover", function (e) {
-          e.target.style.background = "pink";
+          e.target.style.background = pickWarm();
         });
       });
       random.addEventListener("click", function (e) {
         gridRow.addEventListener("mouseover", function (e) {
-          e.target.style.background = randomPicker();
+          e.target.style.background = pickRandom();
         });
         gridCol.addEventListener("mouseover", function (e) {
-          e.target.style.background = "purple";
+          e.target.style.background = pickRandom();
         });
       });
     }
@@ -72,7 +73,23 @@ function grid64() {
   playGame(64);
 }
 
-function randomPicker() {
+function pickWarm() {
+  let random = [];
+
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 70);
+  let blue = Math.floor(Math.random() * 0);
+  random.push(red, green, blue);
+
+  let joinRGB = random.join(", ");
+  let rgb = `rgba(${joinRGB}, 0.5)`;
+  console.log(rgb);
+
+  span.style.background = rgb;
+  return rgb;
+}
+
+function pickRandom() {
   let random = [];
 
   for (let i = 0; i < 3; i++) {
@@ -87,6 +104,7 @@ function randomPicker() {
 }
 
 function playBlack(e) {
+  span.style.background = "#333";
   e.target.style.background = "#333";
 }
 
