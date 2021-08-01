@@ -1,11 +1,16 @@
 const container = document.querySelector(".container");
-const black = document.querySelector(".black");
-const warm = document.querySelector(".warm");
+const grey = document.querySelector(".grey");
+const pastel = document.querySelector(".pastel");
 const span = document.querySelector("span");
 const random = document.querySelector(".random");
 const pix16 = document.querySelector(".grid16");
 const pix32 = document.querySelector(".grid32");
 const pix64 = document.querySelector(".grid64");
+const colorWell = document.querySelector("#colorWell");
+
+let colorPick;
+
+window.addEventListener("load", chooseColor, false);
 
 pix16.addEventListener("click", grid16);
 pix32.addEventListener("click", grid32);
@@ -14,33 +19,54 @@ pix64.addEventListener("click", grid64);
 playGame(16);
 
 function playGame(value) {
+  // create columns
   for (let i = 1; i <= value; i++) {
     const gridCol = document.createElement("div");
     gridCol.classList.add("gridCol");
+    // create rows
     for (let j = 2; j <= value; j++) {
       const gridRow = document.createElement("div");
       gridRow.classList.add("gridRow");
       container.appendChild(gridRow);
 
-      gridRow.addEventListener("mouseover", playBlack);
-      gridCol.addEventListener("mouseover", playBlack);
+      // run pickGrey() if run over the grids
+      gridRow.addEventListener("mouseover", function (e) {
+        e.target.style.background = pickGrey();
+      });
+      gridCol.addEventListener("mouseover", function (e) {
+        e.target.style.background = pickGrey();
+      });
 
-      black.addEventListener("click", function (e) {
+      // if color picker is chosen
+      colorWell.addEventListener("click", function (e) {
+        // run the chooseColor() function
         gridRow.addEventListener("mouseover", function (e) {
-          e.target.style.background = "#333";
-          span.style.background = "#333";
+          e.target.style.background = chooseColor();
         });
         gridCol.addEventListener("mouseover", function (e) {
-          e.target.style.background = "#333";
+          e.target.style.background = chooseColor();
         });
       });
-      warm.addEventListener("click", function (e) {
+
+      // if grey scale is chosen
+      grey.addEventListener("click", function (e) {
+        // run the pickGrey() function
         gridRow.addEventListener("mouseover", function (e) {
-          e.target.style.background = pickWarm();
-          span.setAttribute("class", "pickWarm");
+          e.target.style.background = pickGrey();
         });
         gridCol.addEventListener("mouseover", function (e) {
-          e.target.style.background = pickWarm();
+          e.target.style.background = pickGrey();
+        });
+      });
+
+      // if pastel scale is chosen then
+      pastel.addEventListener("click", function (e) {
+        // run the pickPastel() function
+        gridRow.addEventListener("mouseover", function (e) {
+          e.target.style.background = pickPastel();
+        });
+        gridCol.addEventListener("mouseover", function (e) {
+          e.target.style.background = pickPastel();
         });
       });
       random.addEventListener("click", function (e) {
@@ -73,20 +99,24 @@ function grid64() {
   playGame(64);
 }
 
-function pickWarm() {
-  let random = [];
-
-  let red = Math.floor(Math.random() * 256);
-  let green = Math.floor(Math.random() * 70);
-  let blue = Math.floor(Math.random() * 0);
-  random.push(red, green, blue);
-
-  let joinRGB = random.join(", ");
-  let rgb = `rgba(${joinRGB}, 0.5)`;
+function pickGrey() {
+  let random = Math.random();
+  let rgb = `rgba(0,0,0,${random})`;
   console.log(rgb);
 
-  span.style.background = rgb;
   return rgb;
+}
+
+function pickPastel() {
+  return (
+    "hsl(" +
+    360 * Math.random() +
+    "," +
+    (25 + 70 * Math.random()) +
+    "%," +
+    (85 + 10 * Math.random()) +
+    "%)"
+  );
 }
 
 function pickRandom() {
@@ -99,13 +129,19 @@ function pickRandom() {
   let joinChoice = random.join(", ");
   let rgb = `rgb(${joinChoice})`;
 
-  span.style.background = rgb;
   return rgb;
 }
 
-function playBlack(e) {
-  span.style.background = "#333";
-  e.target.style.background = "#333";
+function chooseColor() {
+  colorWell.addEventListener("input", updateFirst, false);
+  return colorPick;
+}
+
+function updateFirst(event) {
+  colorPick = event.target.value;
+
+  console.log(colorWell.value);
+  return colorPick;
 }
 
 function restart(e) {
