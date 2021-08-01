@@ -67,8 +67,9 @@ input[type="color"]:hover {
     border-radius: 0.5rem;
     cursor: pointer;
     transition: transform 0.2s;
-    border: 0.1rem solid #333;
+    border: 0.1rem solid rgb(141, 141, 141);
     // box-shadow: 0 1px 5px 0 #b0dab9;
+    box-shadow: rgba(0, 0, 0, 0.07) 0 6px 9px 0;
   }
   button:hover {
     transform: scale(1.1);
